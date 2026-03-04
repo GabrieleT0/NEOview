@@ -15,6 +15,7 @@ const Dashboard = () => {
     <div style={{ height: "100vh", margin: 0 }}>
       {iframeUrl ? (
         <iframe
+          title="Mobility Window"
           src={iframeUrl}
           width="100%"
           height="100%"
