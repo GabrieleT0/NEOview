@@ -1,0 +1,87 @@
+/* NeoExplorer Landing Page */
+
+.neoexplorer-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1923 0%, #1a2c3d 60%, #0f1923 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 24px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.neoexplorer-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.neoexplorer-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.neoexplorer-subtitle {
+  font-size: 1.1rem;
+  color: #8aafc7;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.neoexplorer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.neoexplorer-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(138, 175, 199, 0.2);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.neoexplorer-card:hover {
+  transform: translateY(-4px);
+  background: rgba(138, 175, 199, 0.12);
+  border-color: rgba(138, 175, 199, 0.5);
+}
+
+.neoexplorer-card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #e8f1f8;
+  margin: 0;
+}
+
+.neoexplorer-card-desc {
+  font-size: 0.95rem;
+  color: #8aafc7;
+  margin: 0;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.neoexplorer-card-arrow {
+  font-size: 1.4rem;
+  color: #4ea8de;
+  align-self: flex-end;
+  transition: transform 0.2s ease;
+}
+
+.neoexplorer-card:hover .neoexplorer-card-arrow {
+  transform: translateX(4px);
+}
