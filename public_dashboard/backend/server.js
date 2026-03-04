@@ -14,7 +14,7 @@ port = process.env.PORT || 5000;
 const METABASE_SITE_URL = process.env.METABASE_SITE_URL;
 const METABASE_SECRET_KEY = process.env.METABASE_SECRET_KEY;
 
-app.get("/nodedash/metabase-dashboard", (req, res) => {
+app.get("/nodedash/mobility-window", (req, res) => {
   const payload = {
     resource: { dashboard: 3 },
     params: {},
