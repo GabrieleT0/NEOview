@@ -1,8 +1,102 @@
-# metabase-NEOLAiA
+<!-- PROJECT LOGO -->
 
-Public dashboard viewer built with a Node.js/Express backend and a React frontend. Dashboards are embedded as signed iframes from a Metabase instance.
+<p align="center">
+  <img src="./public_dashboard/frontend/metabase-dash/public/logo.png" alt="NEOview logo" width="350" />
+</p>
+
+<p align="center">
+  <strong>A tool for visualizing dashboards and exploring datasets, built on top of <a href="https://www.metabase.com/">Metabase</a>.</strong>
+</p>
+
+
+## Index
+
+- [Prerequisites](#prerequisites)
+- [Quickstart (local development)](#quickstart-local-development)
+- [Optional: run Metabase locally (Docker)](#optional-run-metabase-locally-docker)
+- [Configuration](#configuration)
+- [Project structure](#project-structure)
+- [How to add a new dashboard](#how-to-add-a-new-dashboard)
+- [Environment variables (backend)](#environment-variables-backend)
+- [Build (frontend)](#build-frontend)
+- [Troubleshooting](#troubleshooting)
 
 ---
+
+## Prerequisites
+
+- Node.js (18+ suggested)
+- npm
+- Optional: Docker + Docker Compose (only if you want to run Metabase locally)
+
+## Quickstart (local development)
+
+### 1) Backend
+
+```bash
+cd public_dashboard/backend
+npm install
+```
+
+Create `public_dashboard/backend/.env` (see also “Environment variables” below):
+
+```bash
+METABASE_SITE_URL=http://localhost:3000
+METABASE_SECRET_KEY=your_metabase_secret_key
+PORT=5000
+```
+
+Run:
+
+```bash
+npm start
+```
+
+The backend exposes endpoints like `http://localhost:5000/nodedash/<dashboard-endpoint>`.
+
+### 2) Frontend
+
+```bash
+cd public_dashboard/frontend/metabase-dash
+npm install
+npm start
+```
+
+Open: `http://localhost:3000/neoview/`
+
+## Optional: run Metabase locally (Docker)
+
+This repo includes a Docker Compose file at `metabase/docker-compose.yml` (Metabase + Postgres).
+
+```bash
+cd metabase
+docker compose up -d
+```
+
+Notes:
+- Metabase is mapped to port `3000` in the compose file, which may conflict with the React dev server (also `3000`).
+  - Easiest option: let React start on a different port when prompted (e.g. `3001`).
+  - If you change ports, also update the backend CORS origin list accordingly.
+
+## Configuration
+
+### Dashboard list
+
+The visible dashboards are defined in:
+- `public_dashboard/frontend/metabase-dash/public/dashboards.json`
+
+The “How to add a new dashboard” section below mentions `public/dashboards.json` — in this repo the file lives at the path above.
+
+### Frontend routing base
+
+The React app is served under `/neoview`:
+- `public_dashboard/frontend/metabase-dash/src/App.js` uses `basename='/neoview'`
+- `public_dashboard/frontend/metabase-dash/package.json` sets `"homepage": "/neoview"`
+
+### Backend base URL (frontend)
+
+The frontend calls the backend using:
+- `public_dashboard/frontend/metabase-dash/src/api.js`
 
 ## Project structure
 
@@ -99,3 +193,18 @@ METABASE_SITE_URL=https://your-metabase-instance.example.com
 METABASE_SECRET_KEY=your_metabase_secret_key
 PORT=5000
 ```
+
+## Build (frontend)
+
+```bash
+cd public_dashboard/frontend/metabase-dash
+npm run build
+```
+
+The build output will be in `public_dashboard/frontend/metabase-dash/build`.
+
+## Troubleshooting
+
+- **Blank iframe / 401 / embedding errors**: ensure embedding is enabled in Metabase and `METABASE_SECRET_KEY` matches your Metabase embedding secret.
+- **CORS errors**: update the `origin` allowlist in `public_dashboard/backend/server.js` if you serve the frontend from a different host/port.
+- **Wrong base path**: if you do not serve the frontend under `/neoview`, update both `basename` in `App.js` and `homepage` in `package.json`.
