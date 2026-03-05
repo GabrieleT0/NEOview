@@ -1,11 +1,11 @@
 [
   {
-    "id": "mobility-window",
-    "label": "Mobility Windows",
-    "description": "Explore mobility patterns and window-level analytics.",
-    "icon": "🚗",
-    "path": "mobility-window",
-    "endpoint": "mobility-window"
+    "id": "degree-programs",
+    "label": "Degree Programs",
+    "description": "Explore the NEOLAiA degree programs.",
+    "icon": "🎓",
+    "path": "degree-programs",
+    "endpoint": "degree-programs"
   },
   {
     "id": "research-profiles",
@@ -14,5 +14,13 @@
     "icon": "🔬",
     "path": "research-profiles",
     "endpoint": "research-profiles"
+  },
+    {
+    "id": "infrastructures",
+    "label": "Infrastructures",
+    "description": "Explore infrastructure data.",
+    "icon": "🏗️",
+    "path": "infrastructures",
+    "endpoint": "infrastructures"
   }
 ]
