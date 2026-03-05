@@ -13,7 +13,6 @@
 
 - [Prerequisites](#prerequisites)
 - [Docker deployment (recommended)](#docker-deployment-recommended)
-  - [Preserving existing Metabase data](#preserving-existing-metabase-data)
   - [If nginx is already installed on the host](#if-nginx-is-already-installed-on-the-host)
 - [Local development (without Docker)](#local-development-without-docker)
 - [Configuration](#configuration)
@@ -60,25 +59,6 @@ docker compose up -d --build
 
 The dashboard will be available at `http://your-host:8080/neoview`.  
 Metabase will be available at `http://your-host:3000`.
-
-### Preserving existing Metabase data
-
-The compose file sets `name: metabase` at the top level. Docker Compose derives the project name from this field, which makes it use the volume name `metabase_postgres_data` — the exact same name that was created by the previous `metabase/docker-compose.yml` (where the project name was inferred from the directory name `metabase`).
-
-**No data is lost.** The Postgres volume is reused transparently.
-
-Before switching to the new compose file, stop the old stack:
-
-```bash
-cd metabase && docker compose down
-cd ..
-```
-
-Then start with the new one from the repo root:
-
-```bash
-docker compose up -d --build
-```
 
 ### If nginx is already installed on the host
 
