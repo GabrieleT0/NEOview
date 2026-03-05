@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 
 <p align="center">
-  <img src="./public_dashboard/frontend/metabase-dash/public/logo.png" alt="NEOview logo" width="350" />
+  <img src="./dashboards/frontend/metabase-dash/public/logo.png" alt="NEOview logo" width="350" />
 </p>
 
 <p align="center">
