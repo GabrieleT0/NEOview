@@ -120,19 +120,20 @@ const styles = {
   divider: {
     height: "1px",
     backgroundColor: "#e8eef3",
-    marginBottom: "0.5rem",
+    marginBottom: "3rem",
   },
 
   heroSection: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "0.3rem",
+    gap: "0.5rem",
+    marginBottom: "1rem",
   },
 
   mainLogo: {
-    maxHeight: "210px",
-    maxWidth: "560px",
+    maxHeight: "150px",
+    maxWidth: "400px",
     objectFit: "contain",
   },
 
