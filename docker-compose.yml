@@ -50,7 +50,7 @@ services:
 
   dashboard-backend:
     build:
-      context: ./public_dashboard/backend
+      context: ./dashboards/backend
       dockerfile: Dockerfile
     container_name: dashboard-backend
     restart: unless-stopped
@@ -68,7 +68,7 @@ services:
 
   dashboard-frontend:
     build:
-      context: ./public_dashboard/frontend/metabase-dash
+      context: ./dashboards/frontend/metabase-dash
       dockerfile: Dockerfile
     container_name: dashboard-frontend
     restart: unless-stopped
